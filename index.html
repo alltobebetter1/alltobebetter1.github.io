@@ -1,9 +1,32 @@
-<p>ay</p>
-var gitalk = new Gitalk({
-  clientID: 'a65e172388cf83ce2860', // GitHub Application Client ID
-  clientSecret: '058862491089bbb27f9e206adfba81ed4aa39b14',
-  repo: 'alltobebetter1.github.io'      // 存放评论的仓库
-  owner: 'alltobebetter1',          // 仓库的创建者，
-  admin: ['alltobebetter1'],        // 如果仓库有多个人可以操作，那么在这里以数组形式写出
-  id: location.href,      // 用于标记评论是哪个页面的
-})
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <style>
+        #gitalk-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="gitalk-container"></div>
+    <script>
+    var gitalk = new Gitalk({
+        clientID: 'a65e172388cf83ce2860', //clientID 
+        clientSecret: '058862491089bbb27f9e206adfba81ed4aa39b14', //clientSecret
+        repo: 'alltobebetter1.github.io', // 评论仓库名
+        owner: 'alltobebetter1',
+        admin: ['alltobebetter1'], //管理人
+        id: location.pathname, // 返回当前 URL 的路径部分作为id
+        language:'zh-CN', //语言
+        distractionFreeMode: false  // 无干扰模式
+    })
+    gitalk.render('gitalk-container')
+    </script>
+</body>
+</html>
